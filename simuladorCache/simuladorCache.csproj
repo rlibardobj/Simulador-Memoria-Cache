@@ -55,8 +55,6 @@
     <Compile Include="Memoria Caché\bloqueCache.cs" />
     <Compile Include="Memoria Caché\lineaCache.cs" />
     <Compile Include="Memoria Caché\memoriaCache.cs" />
-    <Compile Include="Memoria RAM\bloqueRam.cs" />
-    <Compile Include="Memoria RAM\entradaBloque.cs" />
     <Compile Include="Memoria RAM\memoriaRam.cs" />
     <Compile Include="procesador.cs" />
     <Compile Include="Program.cs" />

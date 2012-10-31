@@ -15,18 +15,30 @@ namespace simuladorCache
 	/// </summary>
 	public class memoriaRam
 	{
-		private bloqueRam[] direcciones;
-		public memoriaRam()
+		private string[] datos;
+		public memoriaRam(int cantidadDatos)
 		{
+			datos=new string[cantidadDatos];
+			for (int i=0;i<cantidadDatos;i++)
+			{
+				datos[i]="Dato "+i;
+			}
 		}
 		
-		public void cargarDatos()
+		public string[] obtenerDireccion(int direccion, int cantidadDatos)
 		{
-		}
-		
-		public string[] obtenerDireccion()
-		{
-			return new string[2];
+			string[] resultado=new string[cantidadDatos];
+			for (int i=0;i<cantidadDatos;i++)
+			{
+				if (direccion<=datos.Length)
+				{
+					resultado[i]=datos[direccion];
+					direccion++;
+				}
+				else
+					break;
+			}
+			return resultado;
 		}
 	}
 }

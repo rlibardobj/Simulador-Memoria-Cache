@@ -6,3 +6,11 @@ C:\Users\rlibardobj\Documents\SharpDevelop Projects\TEC\simuladorCache\obj\x86\D
 C:\Users\rlibardobj\Documents\SharpDevelop Projects\TEC\simuladorCache\obj\x86\Debug\simuladorCache.MainForm.resources
 C:\Users\rlibardobj\Documents\SharpDevelop Projects\TEC\simuladorCache\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\rlibardobj\Documents\SharpDevelop Projects\TEC\simuladorCache\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\rlibardobj\Documents\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\rlibardobj\Documents\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\simuladorCache.MainForm.resources
+C:\Users\rlibardobj\Documents\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\rlibardobj\Documents\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\rlibardobj\Documents\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\simuladorCache.exe
+C:\Users\rlibardobj\Documents\GitHub\Simulador-Memoria-Cache\simuladorCache\bin\Debug\simuladorCache.exe
+C:\Users\rlibardobj\Documents\GitHub\Simulador-Memoria-Cache\simuladorCache\bin\Debug\simuladorCache.pdb
+C:\Users\rlibardobj\Documents\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\simuladorCache.pdb
