@@ -56,11 +56,12 @@
     <Compile Include="Memoria Caché\lineaCache.cs" />
     <Compile Include="Memoria Caché\memoriaCache.cs" />
     <Compile Include="Memoria RAM\memoriaRam.cs" />
-    <Compile Include="procesador.cs" />
+    <Compile Include="Procesador\procesador.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Procesador" />
     <Folder Include="Memoria Caché" />
     <Folder Include="Memoria RAM" />
   </ItemGroup>

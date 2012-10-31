@@ -7,6 +7,9 @@
  * Para cambiar esta plantilla use Herramientas | Opciones | Codificación | Editar Encabezados Estándar
  */
 using System;
+using simuladorCache.Memoria_Cache;
+using simuladorCache.Memoria_RAM;
+using simuladorCache.Procesador;
 
 namespace simuladorCache
 {
@@ -17,7 +20,7 @@ namespace simuladorCache
 	{
 		memoriaCache memoria;
 		procesador procesador;
-		int _set,posicion,etiqueta,cantidadDatos=16,asociatividad=4,direcionamiento=11,referencias;
+		int _set,posicion,etiqueta,cantidadDatos=16,asociatividad=4,direcionamiento=15,referencias,tipo;
 		public controladorPrograma(string tamaño, string tipo, string referencias)
 		{
 			this.crearCache(int.Parse(tamaño),int.Parse(tipo));

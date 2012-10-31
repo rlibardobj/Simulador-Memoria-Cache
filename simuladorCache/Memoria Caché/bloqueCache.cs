@@ -8,7 +8,7 @@
  */
 using System;
 
-namespace simuladorCache
+namespace simuladorCache.Memoria_Cache
 {
 	/// <summary>
 	/// Description of bloqueCache.

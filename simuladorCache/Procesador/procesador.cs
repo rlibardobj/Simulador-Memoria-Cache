@@ -7,8 +7,9 @@
  * Para cambiar esta plantilla use Herramientas | Opciones | Codificación | Editar Encabezados Estándar
  */
 using System;
+using simuladorCache.Memoria_RAM;
 
-namespace simuladorCache
+namespace simuladorCache.Procesador
 {
 	/// <summary>
 	/// Description of procesador.
@@ -25,7 +26,7 @@ namespace simuladorCache
 		
 		public string obtenerDireccion()
 		{
-			int direccion=random.Next(ultimaDireccion,ultimaDireccion+3);
+			int direccion=random.Next(ultimaDireccion,ultimaDireccion);
 			ultimaDireccion=direccion;
 			return Convert.ToString(direccion,2);
 		}
