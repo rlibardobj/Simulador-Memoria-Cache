@@ -59,7 +59,22 @@ namespace simuladorCache
 		//Se encarga de llenar con ceros la instruccion en caso de que no cumpla con los 11 bits de direccionamiento
 		public void verificarInstruccion()
 		{
+			String tag = Convert.ToString(etiqueta),set = Convert.ToString(_set),offset = Convert.ToString(posicion);
+			
+			while(tag.Length<bitsEtiqueta)
+			{
+				tag= "0"+tag;
+			}
+			while(set.Length<bitsSet)
+			{
+				set = "0"+set;
+			}
+			while(offset.Length<bitsPosicion)
+			{
+				offset = "0"+offset;
+			}			
 			//tag+set+offset
+			direccion = tag+set+offset;
 		}
 		
 		public void aislarUbicacion()
