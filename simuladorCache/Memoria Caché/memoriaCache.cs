@@ -62,7 +62,7 @@ namespace simuladorCache.Memoria_Cache
 					return;
 				}
 			}
-			int linea=new Random().Next(0,bloque.lineas.Length);
+			int linea=new Random().Next(0,bloque.lineas.Length-1);
 			for (int i=0;i<bloque.lineas[0].datos.Length;i++)
 			{
 				bloque.lineas[linea].datos[i]=direccion[i];
