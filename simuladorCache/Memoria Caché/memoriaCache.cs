@@ -46,8 +46,9 @@ namespace simuladorCache.Memoria_Cache
 			return "";
 		}
 		
-		public void ingresarDireccion()
+		public void ingresarDireccion(string[] direccion, int _set, )
 		{
+			
 		}
 	}
 }
