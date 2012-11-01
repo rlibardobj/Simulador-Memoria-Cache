@@ -82,6 +82,7 @@ namespace simuladorCache
 			
 		}
 		
+		//Recibe el tamaño de la memoria cache, en Kbyte, ejemplo 32KB
 		public void setearBits(int tamañoCache)
 		{
 			int cantidad=0,resultado=1,tamañoSet,cantidadSets;
