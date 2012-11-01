@@ -15,14 +15,13 @@ namespace simuladorCache.Memoria_Cache
 	/// </summary>
 	public class lineaCache
 	{
-		private string[] datos;
-		private int etiqueta;
-		bool valida;
+		public string[] datos;
+		public int etiqueta;
+		public bool valida;
 		
 		public lineaCache(int cantidadDatos)
 		{
 			this.datos=new string[cantidadDatos];
-			this.etiqueta=etiqueta;
 			valida=false;
 			this.inicializarDatos(cantidadDatos);
 		}

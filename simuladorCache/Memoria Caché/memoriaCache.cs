@@ -33,10 +33,17 @@ namespace simuladorCache.Memoria_Cache
 			}
 		}
 		
-		public bool buscarDireccion()
+		public string buscarDireccion(int _set, int posicion, int etiqueta)
 		{	
-			//Falta por hacer
-			return true;
+			bloqueCache bloque=bloques[_set];
+			for (int i=0;i<bloque.lineas.Length;i++)
+			{
+				if ((bloque.lineas[i].etiqueta==etiqueta)&&(bloque.lineas[i].valida))
+				{
+					return bloque.lineas[i].datos[posicion];
+				}
+			}
+			return "";
 		}
 		
 		public void ingresarDireccion()

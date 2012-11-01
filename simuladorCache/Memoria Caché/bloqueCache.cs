@@ -15,7 +15,7 @@ namespace simuladorCache.Memoria_Cache
 	/// </summary>
 	public class bloqueCache
 	{
-		private lineaCache[] lineas;
+		public lineaCache[] lineas;
 		
 		public bloqueCache(int cantidadLineas, int cantidadDatos)
 		{

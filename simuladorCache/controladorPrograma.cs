@@ -18,19 +18,23 @@ namespace simuladorCache
 	/// </summary>
 	public class controladorPrograma
 	{
-		memoriaCache memoria;
+		memoriaRam RAM;
+		memoriaCache memoria1,memoria2,memoria3;
 		procesador procesador;
-		int _set,posicion,etiqueta,cantidadDatos=16,asociatividad=4,direcionamiento=15,referencias,tipo;
+		int _set,posicion,etiqueta,cantidadDatos=16,asociatividad=4,direcionamiento=15,referencias,tipo,hits,misses,bitsPosicion,bitsSet,bitsEtiqueta;
+		string direccion;
 		public controladorPrograma(string tamaño, string tipo, string referencias)
 		{
 			this.crearCache(int.Parse(tamaño),int.Parse(tipo));
 			this.referencias=int.Parse(referencias);
 			procesador=new procesador();
+			RAM=new memoriaRam(100);
+			setearBits(int.Parse(tamaño));
 		}
 		
 		public void crearCache(int tamaño, int tipo)
 		{
-			memoria=new memoriaCache(tipo,tamaño/(cantidadDatos*asociatividad),asociatividad,cantidadDatos);
+			memoria1=new memoriaCache(tipo,tamaño/(cantidadDatos*asociatividad),asociatividad,cantidadDatos);
 		}
 		
 		//Funcion que permite hacer una emulación automática del sistema de cache
@@ -38,13 +42,37 @@ namespace simuladorCache
 		//Si no se encuentra en cache debera buscar en RAM y actualizar la cache		
 		public void emulacionAutomatica()
 		{
-			
+			direccion=procesador.obtenerDireccion();
+			verificarInstruccion();
+			aislarUbicacion();
+			if (memoria1.buscarDireccion(_set,posicion,etiqueta).Equals(""))
+			{
+				hits++;
+			}
+			else
+			{
+				string[] direcciones=RAM.obtenerDireccion(Convert.ToInt32(direccion,2),cantidadDatos);
+				memoria1.ingresarDireccion();
+			}
 		}
 		
 		//Se encarga de llenar con ceros la instruccion en caso de que no cumpla con los 11 bits de direccionamiento
 		public void verificarInstruccion()
 		{
+			//tag+set+offset
+		}
+		
+		public void aislarUbicacion()
+		{
 			
+		}
+		
+		public void setearBits(int tamañoCache)
+		{
+			//4*16 = tamaño de set
+			//Ahora se tiene que tomar en consideracion el tamaño en BYTES de la cache
+			//tamaño de la cache/tamaño de cada set = cantidad de sets
+			//d.umn.edu/~gshute/arch/new/cache-addressing.xhtml
 		}
 	}
 }
