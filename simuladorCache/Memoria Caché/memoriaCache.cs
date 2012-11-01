@@ -46,9 +46,30 @@ namespace simuladorCache.Memoria_Cache
 			return "";
 		}
 		
-		public void ingresarDireccion(string[] direccion, int _set, )
+		public void ingresarDireccion(string[] direccion, int _set, int etiqueta)
 		{
-			
+			bloqueCache bloque=bloques[_set];
+			for (int i=0;i<bloque.lineas.Length;i++)
+			{
+				if (bloque.lineas[i].valida==false)
+				{
+					for (int a=0;a<bloque.lineas[i].datos.Length;a++)
+					{
+						bloque.lineas[i].datos[a]=direccion[a];
+					}
+					bloque.lineas[i].etiqueta=etiqueta;
+					bloque.lineas[i].valida=true;
+					return;
+				}
+			}
+			int linea=new Random().Next(0,bloque.lineas.Length);
+			for (int i=0;i<bloque.lineas[0].datos.Length;i++)
+			{
+				bloque.lineas[linea].datos[i]=direccion[i];
+			}
+			bloque.lineas[linea].etiqueta=etiqueta;
+			bloque.lineas[linea].valida=true;
+			return;
 		}
 	}
 }
