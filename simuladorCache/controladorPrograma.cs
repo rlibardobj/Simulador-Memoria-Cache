@@ -69,10 +69,26 @@ namespace simuladorCache
 		
 		public void setearBits(int tamañoCache)
 		{
-			//4*16 = tamaño de set
-			//Ahora se tiene que tomar en consideracion el tamaño en BYTES de la cache
-			//tamaño de la cache/tamaño de cada set = cantidad de sets
-			//d.umn.edu/~gshute/arch/new/cache-addressing.xhtml
+			int cantidad=0,resultado=1,tamañoSet,cantidadSets;
+			while(resultado<cantidadDatos)
+			{
+				resultado = resultado * 2;
+				cantidad++;
+			}
+			
+			bitsPosicion = cantidad;
+			tamañoSet = asociatividad * cantidadDatos;
+			cantidadSets = (tamañoCache*1024) / tamañoSet;
+			cantidad = 0;
+			resultado = 1;
+			
+			while(resultado<cantidadSets)
+			{
+				resultado = resultado * 2;
+				cantidad++;
+			}
+			bitsSet = cantidad;
+			bitsEtiqueta = tamañoCache - (posicion + _set);
 		}
 	}
 }
