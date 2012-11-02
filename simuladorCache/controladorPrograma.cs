@@ -21,7 +21,7 @@ namespace simuladorCache
 		memoriaRam RAM;
 		memoriaCache memoria1,memoria2,memoria3;
 		procesador procesador;
-		int _set,posicion,etiqueta,cantidadDatos=16,asociatividad=4,direcionamiento=15,referencias,tipo,hits,misses,bitsPosicion,bitsSet,bitsEtiqueta,contadorReferencias,reemplazos;
+		int _set,posicion,etiqueta,cantidadDatos=16,asociatividad=4,direccionamiento=15,referencias,tipo,hits,misses,bitsPosicion,bitsSet,bitsEtiqueta,contadorReferencias,reemplazos;
 		string direccion;
 		public controladorPrograma(string tamaño, string tipo, string referencias)
 		{
@@ -69,10 +69,36 @@ namespace simuladorCache
 		//Se encarga de llenar con ceros la instruccion en caso de que no cumpla con los 11 bits de direccionamiento
 		public void verificarInstruccion()
 		{		
-			while(direccion.Length<direcionamiento)
+			while(direccion.Length<direccionamiento)
 			{
 				direccion= "0"+direccion;
 			}
+		}
+				
+		public void aislarUbicacion()
+		{
+			string resultado="";
+			int x,y=0;
+			for(x=0;x<bitsPosicion;x++)
+			{
+				resultado=resultado+direccion[y];
+				y++;
+			}
+			posicion= Convert.ToInt32(resultado,10);
+			resultado="";
+			for(x=0;x<bitsSet;x++)
+			{
+				resultado=resultado+direccion[y];
+				y++;
+			}
+			_set=Convert.ToInt32(resultado,10);
+			resultado="";
+			for(x=0;x<bitsEtiqueta;x++)
+			{
+				resultado=resultado+direccion[y];
+				y++;
+			}
+			etiqueta=Convert.ToInt32(resultado,10);
 		}
 		
 		//Recibe el tamaño de la memoria cache, en Kbyte, ejemplo 32KB

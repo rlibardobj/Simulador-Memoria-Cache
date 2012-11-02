@@ -19,3 +19,9 @@ E:\Documentos\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\simula
 E:\Documentos\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\GenerateResource.read.1.tlog
 E:\Documentos\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\GenerateResource.write.1.tlog
 E:\Documentos\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\simuladorCache.exe
+C:\Users\Mantenimiento\Documents\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Mantenimiento\Documents\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\simuladorCache.MainForm.resources
+C:\Users\Mantenimiento\Documents\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Mantenimiento\Documents\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Mantenimiento\Documents\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\simuladorCache.exe
+C:\Users\Mantenimiento\Documents\GitHub\Simulador-Memoria-Cache\simuladorCache\obj\x86\Debug\simuladorCache.pdb
