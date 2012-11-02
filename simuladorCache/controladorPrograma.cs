@@ -77,28 +77,50 @@ namespace simuladorCache
 				
 		public void aislarUbicacion()
 		{
-			string resultado="";
-			int x,y=0;
-			for(x=0;x<bitsPosicion;x++)
+			char[] arreglo = direccion.ToCharArray();
+			Array.Reverse(arreglo);
+			String direc = new string(arreglo);
+			string resultado = "";
+			int x, y = 0;
+
+			for (x = 0; x < bitsPosicion; x++)
 			{
-				resultado=resultado+direccion[y];
+				resultado = resultado + direc[y];
 				y++;
 			}
-			posicion= Convert.ToInt32(resultado,10);
-			resultado="";
-			for(x=0;x<bitsSet;x++)
+			arreglo = resultado.ToCharArray();
+			Array.Reverse(arreglo);
+			resultado=new string(arreglo);
+			posicion = Convert.ToInt32(resultado, 2);
+			Console.WriteLine(resultado);
+			Console.WriteLine(posicion);
+			resultado ="";
+
+			for (x = 0; x < bitsSet; x++)
 			{
-				resultado=resultado+direccion[y];
+				resultado = resultado + direc[y];
 				y++;
 			}
-			_set=Convert.ToInt32(resultado,10);
-			resultado="";
-			for(x=0;x<bitsEtiqueta;x++)
+			arreglo = resultado.ToCharArray();
+			Array.Reverse(arreglo);
+			resultado = new string(arreglo);
+			posicion = Convert.ToInt32(resultado, 2);
+			_set = Convert.ToInt32(resultado, 2);
+			Console.WriteLine(resultado);
+			Console.WriteLine(_set);
+			resultado = "";
+
+			for (x = 0; x < bitsEtiqueta; x++)
 			{
-				resultado=resultado+direccion[y];
+				resultado = resultado + direc[y];
 				y++;
 			}
-			etiqueta=Convert.ToInt32(resultado,10);
+			arreglo = resultado.ToCharArray();
+			Array.Reverse(arreglo);
+			resultado = new string(arreglo);
+			etiqueta = Convert.ToInt32(resultado, 2);
+			Console.WriteLine(resultado);
+			Console.WriteLine(etiqueta);
 		}
 		
 		//Recibe el tamaño de la memoria cache, en Kbyte, ejemplo 32KB
