@@ -17,17 +17,22 @@ namespace simuladorCache.Procesador
 	public class procesador
 	{
 		Random random;
-		int ultimaDireccion;
+		public int ultimaDireccion;
 		public procesador()
 		{
 			random=new Random();
 			ultimaDireccion=0;
 		}
 		
-		public string obtenerDireccion()
+		public string obtenerDireccion(int limite)
 		{
-			int direccion=random.Next(ultimaDireccion,ultimaDireccion);
-			ultimaDireccion=direccion;
+			int direccion=random.Next(ultimaDireccion,ultimaDireccion+40);
+			if (direccion>limite){
+				direccion=random.Next(0,limite-1);
+				ultimaDireccion=direccion;
+			}
+			else
+				ultimaDireccion=direccion;
 			return Convert.ToString(direccion,2);
 		}
 	}

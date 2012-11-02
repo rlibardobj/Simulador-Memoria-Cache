@@ -83,7 +83,7 @@ namespace simuladorCache
 			// 
 			this.label4.Location = new System.Drawing.Point(89, 161);
 			this.label4.Name = "label4";
-			this.label4.Size = new System.Drawing.Size(22, 11);
+			this.label4.Size = new System.Drawing.Size(55, 23);
 			this.label4.TabIndex = 10;
 			this.label4.Text = "0";
 			// 
@@ -91,7 +91,7 @@ namespace simuladorCache
 			// 
 			this.label5.Location = new System.Drawing.Point(89, 184);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(22, 11);
+			this.label5.Size = new System.Drawing.Size(55, 23);
 			this.label5.TabIndex = 11;
 			this.label5.Text = "0";
 			// 
@@ -99,7 +99,7 @@ namespace simuladorCache
 			// 
 			this.label6.Location = new System.Drawing.Point(89, 207);
 			this.label6.Name = "label6";
-			this.label6.Size = new System.Drawing.Size(22, 11);
+			this.label6.Size = new System.Drawing.Size(55, 23);
 			this.label6.TabIndex = 12;
 			this.label6.Text = "0";
 			// 

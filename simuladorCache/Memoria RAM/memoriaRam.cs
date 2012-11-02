@@ -30,7 +30,7 @@ namespace simuladorCache.Memoria_RAM
 			string[] resultado=new string[cantidadDatos];
 			for (int i=0;i<cantidadDatos;i++)
 			{
-				if (direccion<=datos.Length)
+				if (direccion<datos.Length)
 				{
 					resultado[i]=datos[direccion];
 					direccion++;

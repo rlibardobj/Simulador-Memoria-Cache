@@ -21,20 +21,21 @@ namespace simuladorCache
 		memoriaRam RAM;
 		memoriaCache memoria1,memoria2,memoria3;
 		procesador procesador;
-		int _set,posicion,etiqueta,cantidadDatos=16,asociatividad=4,direccionamiento=15,referencias,tipo,hits,misses,bitsPosicion,bitsSet,bitsEtiqueta,contadorReferencias,reemplazos;
-		string direccion;
-		public controladorPrograma(string tamaño, string tipo, string referencias)
+		public int _set,posicion,etiqueta,cantidadDatos=16,asociatividad,direccionamiento=25,referencias,tipo,hits,misses,bitsPosicion,bitsSet,bitsEtiqueta,contadorReferencias,reemplazos,tamañoRAM=100;
+		string direccion,nulo="";
+		public controladorPrograma(string tamaño, string tipo, string referencias, string asociatividad)
 		{
+			this.asociatividad=int.Parse(asociatividad);
 			this.crearCache(int.Parse(tamaño),int.Parse(tipo));
 			this.referencias=int.Parse(referencias);
 			procesador=new procesador();
-			RAM=new memoriaRam(100);
+			RAM=new memoriaRam(tamañoRAM);
 			setearBits(int.Parse(tamaño));
 		}
 		
 		public void crearCache(int tamaño, int tipo)
 		{
-			memoria1=new memoriaCache(tipo,tamaño/(cantidadDatos*asociatividad),asociatividad,cantidadDatos);
+			memoria1=new memoriaCache(tipo,(int)Math.Truncate((double)tamaño/(cantidadDatos*asociatividad)+1),asociatividad,cantidadDatos);
 		}
 		
 		//Funcion que permite hacer una emulación automática del sistema de cache
@@ -43,41 +44,51 @@ namespace simuladorCache
 		public void emulacionAutomatica()
 		{
 			while (contadorReferencias<referencias){
-				direccion=procesador.obtenerDireccion();
+				direccion=procesador.obtenerDireccion(tamañoRAM);
 				emulacionManual();
 			}
 		}
 		
-		public void emulacionManual(string direccion)
+		public void emulacionManual()
 		{
 			verificarInstruccion();
 			aislarUbicacion();
-			if (memoria1.buscarDireccion(_set,posicion,etiqueta).Equals(""))
-			{
-				hits++;
+			string busqueda=memoria1.buscarDireccion(_set,posicion,etiqueta);
+			if (busqueda==null){
+				busqueda="";
 			}
-			else
+			if (busqueda.Equals(nulo))
 			{
+				contadorReferencias++;
+				misses++;
 				string[] direcciones=RAM.obtenerDireccion(Convert.ToInt32(direccion,2),cantidadDatos);
 				if (memoria1.ingresarDireccion(direcciones,_set,etiqueta))
 				{
 					reemplazos++;
 				}
 			}
+			
+			else
+			{
+				hits++;
+			}
 		}
 		
 		//Se encarga de llenar con ceros la instruccion en caso de que no cumpla con los 11 bits de direccionamiento
 		public void verificarInstruccion()
-		{		
+		{
 			while(direccion.Length<direccionamiento)
 			{
 				direccion= "0"+direccion;
 			}
 		}
-				
+		
 		public void aislarUbicacion()
 		{
-			char[] arreglo = direccion.ToCharArray();
+			posicion=Convert.ToInt32(direccion.Substring(direccionamiento-bitsPosicion,bitsPosicion),2);
+			_set=Convert.ToInt32(direccion.Substring(direccionamiento-(bitsPosicion+bitsSet),bitsSet),2);
+			etiqueta=Convert.ToInt32(direccion.Substring(direccionamiento-(bitsSet+bitsPosicion+bitsEtiqueta),bitsEtiqueta),2);
+			/*char[] arreglo = direccion.ToCharArray();
 			Array.Reverse(arreglo);
 			String direc = new string(arreglo);
 			string resultado = "";
@@ -92,8 +103,6 @@ namespace simuladorCache
 			Array.Reverse(arreglo);
 			resultado=new string(arreglo);
 			posicion = Convert.ToInt32(resultado, 2);
-			Console.WriteLine(resultado);
-			Console.WriteLine(posicion);
 			resultado ="";
 
 			for (x = 0; x < bitsSet; x++)
@@ -106,8 +115,6 @@ namespace simuladorCache
 			resultado = new string(arreglo);
 			posicion = Convert.ToInt32(resultado, 2);
 			_set = Convert.ToInt32(resultado, 2);
-			Console.WriteLine(resultado);
-			Console.WriteLine(_set);
 			resultado = "";
 
 			for (x = 0; x < bitsEtiqueta; x++)
@@ -118,9 +125,7 @@ namespace simuladorCache
 			arreglo = resultado.ToCharArray();
 			Array.Reverse(arreglo);
 			resultado = new string(arreglo);
-			etiqueta = Convert.ToInt32(resultado, 2);
-			Console.WriteLine(resultado);
-			Console.WriteLine(etiqueta);
+			etiqueta = Convert.ToInt32(resultado, 2);*/
 		}
 		
 		//Recibe el tamaño de la memoria cache, en Kbyte, ejemplo 32KB
@@ -135,7 +140,7 @@ namespace simuladorCache
 			
 			bitsPosicion = cantidad;
 			tamañoSet = asociatividad * cantidadDatos;
-			cantidadSets = (tamañoCache*1024) / tamañoSet;
+			cantidadSets=(int)Math.Truncate((double)tamañoCache / tamañoSet +1);
 			cantidad = 0;
 			resultado = 1;
 			
@@ -145,7 +150,7 @@ namespace simuladorCache
 				cantidad++;
 			}
 			bitsSet = cantidad;
-			bitsEtiqueta = direccionamiento - (posicion + _set);
+			bitsEtiqueta = direccionamiento - (bitsPosicion+bitsSet);
 		}
 	}
 }

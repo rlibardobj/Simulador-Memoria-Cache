@@ -58,8 +58,11 @@ namespace simuladorCache
 		
 		void AutomáticamenteToolStripMenuItemClick(object sender, EventArgs e)
 		{
-			controlador=new controladorPrograma(textBox1.Text,"1",textBox3.Text);
+			controlador=new controladorPrograma(textBox1.Text,"1",textBox3.Text,textBox2.Text);
 			controlador.emulacionAutomatica();
+			label4.Text=controlador.hits.ToString();
+			label5.Text=controlador.misses.ToString();
+			label6.Text=controlador.reemplazos.ToString();
 		}
 	}
 }
