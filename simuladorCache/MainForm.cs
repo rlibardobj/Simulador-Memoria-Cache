@@ -34,5 +34,15 @@ namespace simuladorCache
 		{
 			string dato=Convert.ToString(int.Parse(textBox1.Text),2);
 		}
+		
+		void Label5Click(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void MainFormLoad(object sender, EventArgs e)
+		{
+			
+		}
 	}
 }

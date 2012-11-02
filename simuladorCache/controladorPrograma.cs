@@ -21,7 +21,7 @@ namespace simuladorCache
 		memoriaRam RAM;
 		memoriaCache memoria1,memoria2,memoria3;
 		procesador procesador;
-		int _set,posicion,etiqueta,cantidadDatos=16,asociatividad=4,direcionamiento=15,referencias,tipo,hits,misses,bitsPosicion,bitsSet,bitsEtiqueta;
+		int _set,posicion,etiqueta,cantidadDatos=16,asociatividad=4,direcionamiento=15,referencias,tipo,hits,misses,bitsPosicion,bitsSet,bitsEtiqueta,contadorReferencias,reemplazos;
 		string direccion;
 		public controladorPrograma(string tamaño, string tipo, string referencias)
 		{
@@ -39,10 +39,17 @@ namespace simuladorCache
 		
 		//Funcion que permite hacer una emulación automática del sistema de cache
 		//Debe pedir las isntrucciones al procesador, verificarlas y por último checkear en la cache
-		//Si no se encuentra en cache debera buscar en RAM y actualizar la cache		
+		//Si no se encuentra en cache debera buscar en RAM y actualizar la cache
 		public void emulacionAutomatica()
 		{
-			direccion=procesador.obtenerDireccion();
+			while (contadorReferencias<referencias){
+				direccion=procesador.obtenerDireccion();
+				emulacionManual();
+			}
+		}
+		
+		public void emulacionManual(string direccion)
+		{
 			verificarInstruccion();
 			aislarUbicacion();
 			if (memoria1.buscarDireccion(_set,posicion,etiqueta).Equals(""))
@@ -52,7 +59,10 @@ namespace simuladorCache
 			else
 			{
 				string[] direcciones=RAM.obtenerDireccion(Convert.ToInt32(direccion,2),cantidadDatos);
-				memoria1.ingresarDireccion();
+				if (memoria1.ingresarDireccion(direcciones,_set,etiqueta))
+				{
+					reemplazos++;
+				}
 			}
 		}
 		
@@ -72,14 +82,9 @@ namespace simuladorCache
 			while(offset.Length<bitsPosicion)
 			{
 				offset = "0"+offset;
-			}			
+			}
 			//tag+set+offset
 			direccion = tag+set+offset;
-		}
-		
-		public void aislarUbicacion()
-		{
-			
 		}
 		
 		//Recibe el tamaño de la memoria cache, en Kbyte, ejemplo 32KB
@@ -104,7 +109,7 @@ namespace simuladorCache
 				cantidad++;
 			}
 			bitsSet = cantidad;
-			bitsEtiqueta = tamañoCache - (posicion + _set);
+			bitsEtiqueta = direccionamiento - (posicion + _set);
 		}
 	}
 }
