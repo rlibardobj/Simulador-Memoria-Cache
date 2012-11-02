@@ -18,6 +18,7 @@ namespace simuladorCache
 	/// </summary>
 	public partial class MainForm : Form
 	{
+		controladorPrograma controlador;
 		public MainForm()
 		{
 			//
@@ -43,6 +44,22 @@ namespace simuladorCache
 		void MainFormLoad(object sender, EventArgs e)
 		{
 			
+		}
+		
+		void EjecutarToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void TableLayoutPanel1Paint(object sender, PaintEventArgs e)
+		{
+			
+		}
+		
+		void AutomáticamenteToolStripMenuItemClick(object sender, EventArgs e)
+		{
+			controlador=new controladorPrograma(textBox1.Text,"1",textBox3.Text);
+			controlador.emulacionAutomatica();
 		}
 	}
 }
