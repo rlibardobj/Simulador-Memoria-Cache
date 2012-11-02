@@ -68,23 +68,11 @@ namespace simuladorCache
 		
 		//Se encarga de llenar con ceros la instruccion en caso de que no cumpla con los 11 bits de direccionamiento
 		public void verificarInstruccion()
-		{
-			String tag = Convert.ToString(etiqueta),set = Convert.ToString(_set),offset = Convert.ToString(posicion);
-			
-			while(tag.Length<bitsEtiqueta)
+		{		
+			while(direccion.Length<direcionamiento)
 			{
-				tag= "0"+tag;
+				direccion= "0"+direccion;
 			}
-			while(set.Length<bitsSet)
-			{
-				set = "0"+set;
-			}
-			while(offset.Length<bitsPosicion)
-			{
-				offset = "0"+offset;
-			}
-			//tag+set+offset
-			direccion = tag+set+offset;
 		}
 		
 		//Recibe el tamaño de la memoria cache, en Kbyte, ejemplo 32KB
