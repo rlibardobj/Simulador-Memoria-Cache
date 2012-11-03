@@ -25,6 +25,9 @@ namespace simuladorCache.Memoria_Cache
 			this.inicializarBloques(cantidadBloques,cantidadLineas,cantidadDatos);
 		}
 		
+		//Inicializa todos los arreglos de la memoria caché.
+		//Recibe la cantidad de blques en los que se divide, la cantidad de líneas por bloque y la cantidad de datos
+		//que cada línea soporta.
 		private void inicializarBloques(int cantidadBloques, int cantidadLineas, int cantidadDatos)
 		{
 			for (int i=0;i<cantidadBloques;i++)
@@ -33,6 +36,9 @@ namespace simuladorCache.Memoria_Cache
 			}
 		}
 		
+		//Busca una dirección en memoria caché a partir de los parámetros
+		//set, posición y la etiqueta.
+		//Retorna string vacío si no encuentra el dato buscado y retorna el dato si lo encuentra.
 		public string buscarDireccion(int _set, int posicion, int etiqueta)
 		{	
 			bloqueCache bloque=bloques[_set];
@@ -46,6 +52,9 @@ namespace simuladorCache.Memoria_Cache
 			return "";
 		}
 		
+		//Inserta un array de direcciones tomadas de la RAM.
+		//Se tiene el parámetro del set y la etiqueta para conocer la ubicación en la cuál se almacenará dicho arreglo.
+		//Retorna true si se reemplazó una línea al insertar el arreglo o false de lo contrario.
 		public bool ingresarDireccion(string[] direccion, int _set, int etiqueta)
 		{
 			bloqueCache bloque=bloques[_set];

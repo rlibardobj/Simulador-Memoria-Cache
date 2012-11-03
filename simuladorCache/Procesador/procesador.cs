@@ -24,6 +24,9 @@ namespace simuladorCache.Procesador
 			ultimaDireccion=0;
 		}
 		
+		//Genera una dirección random que se utilizará para la emulación.
+		//Toma como parámetro el límite de dirección que puede generar, tomando como referencia el tamaño de la memoria
+		//RAM.
 		public string obtenerDireccion(int limite)
 		{
 			int direccion=random.Next(ultimaDireccion,ultimaDireccion+40);

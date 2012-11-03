@@ -57,7 +57,7 @@ namespace simuladorCache
 			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(12, 207);
+			this.label1.Location = new System.Drawing.Point(59, 186);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(71, 23);
 			this.label1.TabIndex = 1;
@@ -65,7 +65,7 @@ namespace simuladorCache
 			// 
 			// label2
 			// 
-			this.label2.Location = new System.Drawing.Point(12, 184);
+			this.label2.Location = new System.Drawing.Point(59, 163);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(71, 23);
 			this.label2.TabIndex = 2;
@@ -73,7 +73,7 @@ namespace simuladorCache
 			// 
 			// label3
 			// 
-			this.label3.Location = new System.Drawing.Point(12, 161);
+			this.label3.Location = new System.Drawing.Point(59, 140);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(71, 23);
 			this.label3.TabIndex = 3;
@@ -81,7 +81,7 @@ namespace simuladorCache
 			// 
 			// label4
 			// 
-			this.label4.Location = new System.Drawing.Point(89, 161);
+			this.label4.Location = new System.Drawing.Point(136, 140);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(55, 23);
 			this.label4.TabIndex = 10;
@@ -89,7 +89,7 @@ namespace simuladorCache
 			// 
 			// label5
 			// 
-			this.label5.Location = new System.Drawing.Point(89, 184);
+			this.label5.Location = new System.Drawing.Point(136, 163);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(55, 23);
 			this.label5.TabIndex = 11;
@@ -97,7 +97,7 @@ namespace simuladorCache
 			// 
 			// label6
 			// 
-			this.label6.Location = new System.Drawing.Point(89, 207);
+			this.label6.Location = new System.Drawing.Point(136, 186);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(55, 23);
 			this.label6.TabIndex = 12;
@@ -109,7 +109,7 @@ namespace simuladorCache
 									this.simularToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(598, 24);
+			this.menuStrip1.Size = new System.Drawing.Size(252, 24);
 			this.menuStrip1.TabIndex = 13;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -137,14 +137,14 @@ namespace simuladorCache
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(120, 44);
+			this.textBox1.Location = new System.Drawing.Point(124, 41);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(100, 20);
 			this.textBox1.TabIndex = 14;
 			// 
 			// label7
 			// 
-			this.label7.Location = new System.Drawing.Point(26, 47);
+			this.label7.Location = new System.Drawing.Point(30, 44);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(100, 23);
 			this.label7.TabIndex = 15;
@@ -152,7 +152,7 @@ namespace simuladorCache
 			// 
 			// label8
 			// 
-			this.label8.Location = new System.Drawing.Point(26, 70);
+			this.label8.Location = new System.Drawing.Point(30, 67);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(100, 23);
 			this.label8.TabIndex = 16;
@@ -160,7 +160,7 @@ namespace simuladorCache
 			// 
 			// label9
 			// 
-			this.label9.Location = new System.Drawing.Point(26, 93);
+			this.label9.Location = new System.Drawing.Point(30, 90);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(100, 23);
 			this.label9.TabIndex = 17;
@@ -168,14 +168,14 @@ namespace simuladorCache
 			// 
 			// textBox2
 			// 
-			this.textBox2.Location = new System.Drawing.Point(120, 67);
+			this.textBox2.Location = new System.Drawing.Point(124, 64);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(100, 20);
 			this.textBox2.TabIndex = 18;
 			// 
 			// textBox3
 			// 
-			this.textBox3.Location = new System.Drawing.Point(120, 90);
+			this.textBox3.Location = new System.Drawing.Point(124, 87);
 			this.textBox3.Name = "textBox3";
 			this.textBox3.Size = new System.Drawing.Size(100, 20);
 			this.textBox3.TabIndex = 19;
@@ -184,7 +184,7 @@ namespace simuladorCache
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(598, 291);
+			this.ClientSize = new System.Drawing.Size(252, 227);
 			this.Controls.Add(this.textBox3);
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.label9);

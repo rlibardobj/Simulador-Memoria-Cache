@@ -25,6 +25,8 @@ namespace simuladorCache.Memoria_RAM
 			}
 		}
 		
+		//Retorna un arreglo con las direcciones que se encuentren a partir del parámetro dirección.
+		//Se devuelven tantas direcciones como lo indique el parámetro cantidadDatos.
 		public string[] obtenerDireccion(int direccion, int cantidadDatos)
 		{
 			string[] resultado=new string[cantidadDatos];

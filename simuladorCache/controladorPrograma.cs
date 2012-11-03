@@ -33,6 +33,8 @@ namespace simuladorCache
 			setearBits(int.Parse(tamaño));
 		}
 		
+		//Función que permite la creación de la memoria caché.
+		//Recibe el tamaño de la caché y su tipo.
 		public void crearCache(int tamaño, int tipo)
 		{
 			memoria1=new memoriaCache(tipo,(int)Math.Truncate((double)tamaño/(cantidadDatos*asociatividad)+1),asociatividad,cantidadDatos);
@@ -40,7 +42,7 @@ namespace simuladorCache
 		
 		//Funcion que permite hacer una emulación automática del sistema de cache
 		//Debe pedir las isntrucciones al procesador, verificarlas y por último checkear en la cache
-		//Si no se encuentra en cache debera buscar en RAM y actualizar la cache
+		//Si no se encuentra en cache debera buscar en RAM y actualizar la cache.
 		public void emulacionAutomatica()
 		{
 			while (contadorReferencias<referencias){
@@ -49,6 +51,7 @@ namespace simuladorCache
 			}
 		}
 		
+		//Permite al usuario la emulación manual de la memoria caché.
 		public void emulacionManual()
 		{
 			verificarInstruccion();
@@ -74,7 +77,7 @@ namespace simuladorCache
 			}
 		}
 		
-		//Se encarga de llenar con ceros la instruccion en caso de que no cumpla con los 11 bits de direccionamiento
+		//Se encarga de llenar con ceros la instruccion en caso de que no cumpla con los 11 bits de direccionamiento.
 		public void verificarInstruccion()
 		{
 			while(direccion.Length<direccionamiento)
@@ -83,49 +86,12 @@ namespace simuladorCache
 			}
 		}
 		
+		//Establece la cantidad de bits que se utilizarán para la posición, la etiqueta y para el set de una dirección.
 		public void aislarUbicacion()
 		{
 			posicion=Convert.ToInt32(direccion.Substring(direccionamiento-bitsPosicion,bitsPosicion),2);
 			_set=Convert.ToInt32(direccion.Substring(direccionamiento-(bitsPosicion+bitsSet),bitsSet),2);
 			etiqueta=Convert.ToInt32(direccion.Substring(direccionamiento-(bitsSet+bitsPosicion+bitsEtiqueta),bitsEtiqueta),2);
-			/*char[] arreglo = direccion.ToCharArray();
-			Array.Reverse(arreglo);
-			String direc = new string(arreglo);
-			string resultado = "";
-			int x, y = 0;
-
-			for (x = 0; x < bitsPosicion; x++)
-			{
-				resultado = resultado + direc[y];
-				y++;
-			}
-			arreglo = resultado.ToCharArray();
-			Array.Reverse(arreglo);
-			resultado=new string(arreglo);
-			posicion = Convert.ToInt32(resultado, 2);
-			resultado ="";
-
-			for (x = 0; x < bitsSet; x++)
-			{
-				resultado = resultado + direc[y];
-				y++;
-			}
-			arreglo = resultado.ToCharArray();
-			Array.Reverse(arreglo);
-			resultado = new string(arreglo);
-			posicion = Convert.ToInt32(resultado, 2);
-			_set = Convert.ToInt32(resultado, 2);
-			resultado = "";
-
-			for (x = 0; x < bitsEtiqueta; x++)
-			{
-				resultado = resultado + direc[y];
-				y++;
-			}
-			arreglo = resultado.ToCharArray();
-			Array.Reverse(arreglo);
-			resultado = new string(arreglo);
-			etiqueta = Convert.ToInt32(resultado, 2);*/
 		}
 		
 		//Recibe el tamaño de la memoria cache, en Kbyte, ejemplo 32KB
